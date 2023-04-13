@@ -6,11 +6,11 @@ function App() {
   const [totals, setTotals] = useState(null);
 
   const countCC = (hours, totalHours, cc) => {
-    const tipsPerHour = cc/totalHours
+    const tipsPerHour = cc/totalHours;
     return (tipsPerHour * hours).toFixed(2);
   };
   const countCash = (hours, totalHours, cash) => {
-    const tipsPerHour = cash/totalHours
+    const tipsPerHour = cash/totalHours;
     return (tipsPerHour * hours).toFixed(2);
   };
   const handleSubmit = (event) => {
@@ -25,7 +25,7 @@ function App() {
     const totalCC = event.target.totalCC.value;
     const totalCash = event.target.totalCash.value;
     const totalHours = event.target.totalHours.value;
-    setTotals({totalCC: Number(totalCC), totalCash: Number(totalCash), totalHours: Number(totalHours)})
+    setTotals({totalCC: Number(totalCC), totalCash: Number(totalCash), totalHours: Number(totalHours)});
     event.target.reset();
   };
 
@@ -55,7 +55,7 @@ function App() {
           <Button type='submit'>Add Totals</Button>
         </FormContainer>
       }
-      <br/>
+      <br />
       {data ?
         <Table>
           <thead>
@@ -84,7 +84,7 @@ function App() {
         : null
       }
     </TipSheetContainer>
-  )
+  );
 };
 
 const TipSheetContainer = styled.div`
@@ -92,7 +92,7 @@ const TipSheetContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 20px;
-`
+`;
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
