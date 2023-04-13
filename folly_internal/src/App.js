@@ -56,30 +56,33 @@ function App() {
         </FormContainer>
       }
       <br/>
-      <Table>
-        <thead>
-          <tr>
-            <Th>Name</Th>
-            <Th>Credit Card Tips</Th>
-            <Th>Cash Tips</Th>
-            <Th>Hours Worked</Th>
-          </tr>
-        </thead>
-        <Tbody>
-          {data.map((item, index) => (
-            <EvenRow key={index}>
-              <Td>{item.name}</Td>
-              <Td>
-                {countCC(item.hoursWorked, totals.totalHours, totals.totalCC)}
-              </Td>
-              <Td>
-                {(countCash(item.hoursWorked, totals.totalHours, totals.totalCash))}
-              </Td>
-              <Td>{item.hoursWorked}</Td>
-            </EvenRow>
-          ))}
-        </Tbody>
-      </Table>
+      {data ?
+        <Table>
+          <thead>
+            <tr>
+              <Th>Name</Th>
+              <Th>Credit Card Tips</Th>
+              <Th>Cash Tips</Th>
+              <Th>Hours Worked</Th>
+            </tr>
+          </thead>
+          <Tbody>
+            {data.map((item, index) => (
+              <EvenRow key={index}>
+                <Td>{item.name}</Td>
+                <Td>
+                  {countCC(item.hoursWorked, totals.totalHours, totals.totalCC)}
+                </Td>
+                <Td>
+                  {(countCash(item.hoursWorked, totals.totalHours, totals.totalCash))}
+                </Td>
+                <Td>{item.hoursWorked}</Td>
+              </EvenRow>
+            ))}
+          </Tbody>
+        </Table>
+        : null
+      }
     </TipSheetContainer>
   )
 };
