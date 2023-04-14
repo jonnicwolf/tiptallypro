@@ -11,7 +11,7 @@ function App() {
   };
   const countCash = (hours, totalHours, cash) => {
     const tipsPerHour = cash/totalHours;
-    return (tipsPerHour * hours).toFixed(2);
+    return (tipsPerHour * hours).toFixed(2); 
   };
   const handleSubmit = (event) => {
     event.preventDefault();
