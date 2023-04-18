@@ -1,12 +1,12 @@
 import React from 'react';
 import TipSheet from './components/TipSheet';
 
-function App() {
+const Home = () => {
   return (
-    <>
-    
-    </>
-  )
+    <div>
+      <TipSheet />
+    </div>
+  );
 };
 
-export default App;
+export default Home;
