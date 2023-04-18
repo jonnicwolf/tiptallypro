@@ -4,7 +4,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE passwords (
-  passowrd INT PRIMARY KEY,
+  password INT PRIMARY KEY,
   password_hash varchar(255) NOT NULL,
   user_id INT,
   FOREIGN KEY (user_id) REFERENCES users(user_id)
