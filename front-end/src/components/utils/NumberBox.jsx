@@ -8,16 +8,12 @@ const NumberBox = () => {
     if (pin.length === 4) {
       // TODO: Perform network check with pin
       console.log(`Checking pin ${pin}...`);
-    }
-  }, [pin]);
-
+    }}, [pin]);
   const handleNumberClick = (digit) => {
     setPin((currentPin) => currentPin.length < 4 ? currentPin + digit : currentPin);
   };
   const handleClearClick = () => setPin('');
-
   const isTyped = (index) => index < pin.length;
-
   return (
     <Container>
       <TypedNumberContainer>
@@ -83,11 +79,15 @@ const Number = styled.button`
 `;
 const Zero = styled.button`
   grid-column-start: 2;
-  border-radius: 50px;
+  border-radius: 50%;
   color: orange;
   font-size: 24px;
   font-weight: bold;
   background-color: white;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: lightgray;
+  }
 `;
 const Clear = styled.button`
   grid-column-start: 3;
@@ -100,6 +100,6 @@ const Clear = styled.button`
   &:hover {
     background-color: lightgray;
   }
-`
+`;
 
 export default NumberBox;
