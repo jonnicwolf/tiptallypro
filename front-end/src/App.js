@@ -5,7 +5,6 @@ import NumberBox from './components/utils/NumberBox';
 function App() {
   return (
     <>
-      <NumberBox/>
       <TipSheet/>
     </>
   )
