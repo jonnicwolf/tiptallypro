@@ -17,7 +17,14 @@ const TipSheet = () => {
     event.preventDefault();
     const name = event.target.name.value;
     const hoursWorked = event.target.hoursWorked.value;
-    setData([...data, { name, hoursWorked: Number(hoursWorked)}]);
+    setData([
+      ...data, 
+      { 
+        name,
+        hoursWorked: Number(hoursWorked),
+        cc: countCC(hoursWorked, totals.totalHours, totals.totalCC),
+        cash: countCash(hoursWorked, totals.totalHours, totals.totalCash)
+      }]);
     event.target.reset();
   };
   const handleSubmitTotals = (event) => {
@@ -74,7 +81,7 @@ const TipSheet = () => {
                   {countCC(item.hoursWorked, totals.totalHours, totals.totalCC)}
                 </Td>
                 <Td>
-                  {(countCash(item.hoursWorked, totals.totalHours, totals.totalCash))}
+                  {countCash(item.hoursWorked, totals.totalHours, totals.totalCash)}
                 </Td>
                 <Td>{item.hoursWorked}</Td>
               </EvenRow>
