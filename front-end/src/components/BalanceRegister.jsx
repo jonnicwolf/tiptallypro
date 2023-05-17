@@ -2,7 +2,20 @@ import React, { useState } from 'react'
 
 const BalanceRegister = () => {
   const [billCount, setBillCount] = useState({});
-  const [tipData, setTipData] = useState({})
+  const [tipData, setTipData] = useState({});
+
+  const billCountSubmit = (event) => {
+    event.preventDefault();
+    const [$100, $50, $20, $10, $5, $1 ] = [
+      event.target._100s.value,
+      event.target._50s.value,
+      event.target._20s.value,
+      event.target._10s.value,
+      event.target._5s.value,
+      event.target._1s.value,
+    ]
+    setBillCount({$100, $50, $20, $10, $5, $1})
+  }
   const RegisterBalancer = (billCounts, cashOwed) => {
     const breakDown ={
       bank: {
@@ -65,26 +78,26 @@ const BalanceRegister = () => {
   return (
     <div>
       <form action="">
-        <label htmlFor="100s">100s</label>
-        <input type="text" id='100s' name='100s'/>
+        <label htmlFor="_100s">100s</label>
+        <input type="text" id='_100s' name='_100s'/>
 
-        <label htmlFor="50s">50s</label>
-        <input type="text" id='50s' name='50s'/>
+        <label htmlFor="_50s">50s</label>
+        <input type="text" id='_50s' name='_50s'/>
 
-        <label htmlFor="20s">20s</label>
-        <input type="text" id='20s' name='20s'/>
+        <label htmlFor="_20s">20s</label>
+        <input type="text" id='_20s' name='_20s'/>
 
-        <label htmlFor="10s">10s</label>
-        <input type="text" id='10s' name='10s'/>
+        <label htmlFor="_10s">10s</label>
+        <input type="text" id='_10s' name='_10s'/>
 
-        <label htmlFor="5s">5s</label>
-        <input type="text" id='5s' name='5s'/>
+        <label htmlFor="_5s">5s</label>
+        <input type="text" id='_5s' name='_5s'/>
 
-        <label htmlFor="1s">1s</label>
-        <input type="text" id='1s' name='1s'/>
+        <label htmlFor="_1s">1s</label>
+        <input type="text" id='_1s' name='_1s'/>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default BalanceRegister;
