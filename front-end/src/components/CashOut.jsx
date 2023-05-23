@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const BalanceRegister = () => {
+const CashOut = () => {
   const [billCount, setBillCount] = useState({});
   const [tipData, setTipData] = useState({});
 
@@ -13,9 +13,9 @@ const BalanceRegister = () => {
       event.target._10s.value,
       event.target._5s.value,
       event.target._1s.value,
-    ]
-    setBillCount({$100, $50, $20, $10, $5, $1})
-  }
+    ];
+    setBillCount({$100, $50, $20, $10, $5, $1});
+  };
 
   function breakDownCash(tips) {
     const denoms = [100, 50, 20, 10, 5, 1];
@@ -35,8 +35,8 @@ const BalanceRegister = () => {
       };
     };
     return breakdown;
-  }
-  
+  };
+
   const BalanceRegister = (billCounts, cashOwed, shares) => {
     let breakDown ={
       bank: {
@@ -54,7 +54,7 @@ const BalanceRegister = () => {
          10: 0,
           5: 0,
           1: 0,
-      },
+      }
     };
     const billCountClone = {...billCounts};
     //find the total of all bills ✅
@@ -74,17 +74,17 @@ const BalanceRegister = () => {
       billCountClone[bill] -= count;
       cashOwedCount += count * bill;
       breakDown.cashOwed[bill] += count;
-    }
+    };
     //add cash shares to breakdown
-    Object.assign(breakDown, breakDownCash(shares))
+    Object.assign(breakDown, breakDownCash(shares));
     //remove bank
-    let bank = 0
+    let bank = 0;
     for (let bill of billDenominations) {
       let count = Math.min(billCounts[bill], billCountClone[bill], Math.floor((500 - bank) / bill));
       billCountClone[bill] -= count;
       bank += count * bill;
       breakDown.bank[bill] += count;
-    }
+    };
     return breakDown;
   };
 
@@ -114,4 +114,4 @@ const BalanceRegister = () => {
   );
 };
 
-export default BalanceRegister;
+export default CashOut; 
