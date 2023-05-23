@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import TipSheet from './components/TipSheet';
+import BalanceRegister from './components/BalanceRegister';
 import NavBar from './components/NavBar';
 
 function App() {
@@ -9,8 +10,8 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path='/' element={<TipSheet/>} />
-        {/* <Route path='/manuals' element={<Manuals/>} />
-        <Route path='/balance-register' element={<BalanceRegister/>} /> */}
+        <Route path='/balance-register' element={<BalanceRegister/>} /> 
+        {/* <Route path='/manuals' element={<Manuals/>} /> */}
       </Routes>
     </>
   )
