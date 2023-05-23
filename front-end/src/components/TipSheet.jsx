@@ -5,6 +5,7 @@ const TipSheet = () => {
   const [data, setData] = useState([]);
   const [totals, setTotals] = useState(null);
 
+  
   const countCC = (hours, totalHours, cc) => {
     const tipsPerHour = cc/totalHours;
     return (tipsPerHour * hours).toFixed(2);
@@ -25,19 +26,19 @@ const TipSheet = () => {
         cc: countCC(hoursWorked, totals.totalHours, totals.totalCC),
         cash: countCash(hoursWorked, totals.totalHours, totals.totalCash)
       }]);
-    event.target.reset();
-  };
-  const handleSubmitTotals = (event) => {
-    event.preventDefault();
-    const totalCC = event.target.totalCC.value;
-    const totalCash = event.target.totalCash.value;
-    const totalHours = event.target.totalHours.value;
-    setTotals({totalCC: Number(totalCC), totalCash: Number(totalCash), totalHours: Number(totalHours)});
-    event.target.reset();
-  };
-
-  return (
-    <TipSheetContainer>
+      event.target.reset();
+    };
+    const handleSubmitTotals = (event) => {
+      event.preventDefault();
+      const totalCC = event.target.totalCC.value;
+      const totalCash = event.target.totalCash.value;
+      const totalHours = event.target.totalHours.value;
+      setTotals({totalCC: Number(totalCC), totalCash: Number(totalCash), totalHours: Number(totalHours)});
+      event.target.reset();
+    };
+    
+    return (
+      <TipSheetContainer>
       {totals ?
         <FormContainer onSubmit={handleSubmit}>
           <Label htmlFor="name">Name</Label>
@@ -95,44 +96,45 @@ const TipSheet = () => {
 };
 
 const TipSheetContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 20px;
 `;
 const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 15%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 5px;
+width: 15%;
 `;
 const Label = styled.label`
-  align-self: center;
+align-self: center;
 `;
 const Button = styled.button`
-  align-self: center;
-  width: 100px;
+align-self: center;
+width: 100px;
 `;
 const Table = styled.table`
-  border-collapse: collapse;
-  width: 40%;
+border-collapse: collapse;
+width: 40%;
 `;
 const Tbody = styled.tbody`
-  align-self: center;
+align-self: center;
 `
 const Th = styled.th`
-  background-color: #4CAF50;
-  color: white;
-  padding: 8px;
-  text-align: left;
+background-color: #4CAF50;
+color: white;
+padding: 8px;
+text-align: left;
 `;
 const Td = styled.td`
-  padding: 8px;
-  text-align: left;
+padding: 8px;
+text-align: left;
 `;
 const EvenRow = styled.tr`
-  background-color: #f2f2f2;
+background-color: #f2f2f2;
 `;
 
 export default TipSheet;
+export const tipData = React.createContext()

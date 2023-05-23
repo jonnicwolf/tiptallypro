@@ -38,9 +38,10 @@ const BalanceRegister = () => {
     const billCountClone = {...billCounts};
 
     //find the total of all bills ✅
-    const total = Object.entries(billCounts)
-                        .map(billCount => billCount = billCount[0]*billCount[1])
-                        .reduce((cur,val)=>cur+val);
+    const total = 
+      Object.entries(billCounts)
+            .map(billCount => billCount = billCount[0]*billCount[1])
+            .reduce((cur,val)=>cur+val);
 
     //find all available denominations ✅
     const billDenominations =
@@ -96,6 +97,8 @@ const BalanceRegister = () => {
         <label htmlFor="_1s">1s</label>
         <input type="text" id='_1s' name='_1s'/>
       </form>
+
+
     </div>
   );
 };
