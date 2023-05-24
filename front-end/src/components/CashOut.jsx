@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const CashOut = () => {
@@ -10,12 +10,13 @@ const CashOut = () => {
   const handleSubmitBillCount = (event) => {
     event.preventDefault();
     const [$100, $50, $20, $10, $5, $1 ] = [
-      event.target._100s.value,
-      event.target._50s.value,
-      event.target._20s.value,
-      event.target._10s.value,
-      event.target._5s.value,
-      event.target._1s.value,
+      //convert type to number for future use
+      Number(event.target._100s.value),
+      Number(event.target._50s.value),
+      Number(event.target._20s.value),
+      Number(event.target._10s.value),
+      Number(event.target._5s.value),
+      Number(event.target._1s.value),
     ];
     setBillCount({$100, $50, $20, $10, $5, $1});
   };
@@ -97,6 +98,8 @@ const CashOut = () => {
       bank += count * bill;
       breakDown.bank[bill] += count;
     };
+    setTotals(...totals, {totalCash: Number(total-(bank+cashOwed))})
+    console.log(totals)
     return breakDown;
   };
 
@@ -117,9 +120,8 @@ const CashOut = () => {
     const handleSubmitTotals = (event) => {
       event.preventDefault();
       const totalCC = event.target.totalCC.value;
-      const totalCash = event.target.totalCash.value;
       const totalHours = event.target.totalHours.value;
-      setTotals({totalCC: Number(totalCC), totalCash: Number(totalCash), totalHours: Number(totalHours)});
+      setTotals({totalCC: Number(totalCC), totalHours: Number(totalHours)});
       event.target.reset();
     };
 

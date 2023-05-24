@@ -9,16 +9,18 @@ const TipSheet = () => {
     const tipsPerHour = cc/totalHours;
     return (tipsPerHour * hours).toFixed(2);
   };
+
   const countCash = (hours, totalHours, cash) => {
     const tipsPerHour = cash/totalHours;
     return (tipsPerHour * hours).toFixed(2); 
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const hoursWorked = event.target.hoursWorked.value;
     setData([
-      ...data, 
+      ...data,
       { 
         name,
         hoursWorked: Number(hoursWorked),
