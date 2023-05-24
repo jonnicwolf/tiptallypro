@@ -5,7 +5,6 @@ const TipSheet = () => {
   const [data, setData] = useState([]);
   const [totals, setTotals] = useState(null);
 
-  
   const countCC = (hours, totalHours, cc) => {
     const tipsPerHour = cc/totalHours;
     return (tipsPerHour * hours).toFixed(2);
@@ -137,4 +136,4 @@ background-color: #f2f2f2;
 `;
 
 export default TipSheet;
-export const tipData = React.createContext()
+
