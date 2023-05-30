@@ -6,8 +6,6 @@ const NavBar = () => {
   return (
     <Container>
       <NavLink to='/'>Tip Sheet</NavLink>
-      <NavLink to='/balance-register'>Balance Register</NavLink>
-      {/* <NavLink to='/manuals'>Manuals</NavLink> */}
     </Container>
   );
 };
