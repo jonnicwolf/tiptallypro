@@ -8,8 +8,53 @@ const CashOut = () => {
   const [totals, setTotals] = useState({});
   const [breakDown, setBreakDown] = useState({});
 
-  const handleBillCount = (event) => {
+  // const handleBillCount = (event) => {
+  //   event.preventDefault();
+  //   const [$100, $50, $20, $10, $5, $1 ] = [
+  //     //convert type to number for future use
+  //     Number(event.target._100s.value),
+  //     Number(event.target._50s.value),
+  //     Number(event.target._20s.value),
+  //     Number(event.target._10s.value),
+  //     Number(event.target._5s.value),
+  //     Number(event.target._1s.value),
+  //   ];
+  //   setBillCount({$100, $50, $20, $10, $5, $1});
+  //   event.target.reset();
+  // };
+
+  const handleBreakDown = () => {
+    const breakDown = balanceRegister(billCount,totals.totalCashOwed,data);
+    setBreakDown(breakDown);
+  };
+
+  // const handleTotals = (event) => {
+  //   const totalCC = event.target.totalCC.value;
+  //   const totalHours = event.target.totalHours.value;
+  //   const totalCashOwed = event.target.totalCashOwed.value;
+  //   setTotals({
+  //     totalCC: Number(totalCC),
+  //     totalHours: Number(totalHours),
+  //     totalCashOwed: Number(totalCashOwed)});
+  //     event.target.reset();
+  // };
+
+  const handleSubmitEmployeeData = (event) => {
     event.preventDefault();
+    const name = event.target.name.value;
+    const hoursWorked = event.target.hoursWorked.value;
+    setData([
+      ...data,
+      {
+        name,
+        hoursWorked: Number(hoursWorked),
+        cc: countCC(hoursWorked, totals.totalHours, totals.totalCC)
+      }]);
+      event.target.reset();
+    };
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
     const [$100, $50, $20, $10, $5, $1 ] = [
       //convert type to number for future use
       Number(event.target._100s.value),
@@ -20,9 +65,6 @@ const CashOut = () => {
       Number(event.target._1s.value),
     ];
     setBillCount({$100, $50, $20, $10, $5, $1});
-    event.target.reset();
-  };
-  const handleTotals = (event) => {
     const totalCC = event.target.totalCC.value;
     const totalHours = event.target.totalHours.value;
     const totalCashOwed = event.target.totalCashOwed.value;
@@ -30,26 +72,8 @@ const CashOut = () => {
       totalCC: Number(totalCC),
       totalHours: Number(totalHours),
       totalCashOwed: Number(totalCashOwed)});
-      event.target.reset();
-    };
-    const handleSubmitEmployeeData = (event) => {
-      event.preventDefault();
-      const name = event.target.name.value;
-      const hoursWorked = event.target.hoursWorked.value;
-      setData([
-        ...data,
-        {
-          name,
-          hoursWorked: Number(hoursWorked),
-          cc: countCC(hoursWorked, totals.totalHours, totals.totalCC)
-        }]);
-        event.target.reset();
-      };
-    const handleSubmit = (event) => {
-      event.preventDefault()
-      handleTotals(event)
-      handleBillCount(event)
-    }
+    event.target.reset();
+  };
 
   const countCC = (hours, totalHours, cc) => {
     const tipsPerHour = cc/totalHours;
@@ -62,6 +86,7 @@ const CashOut = () => {
   console.log('billCount: ',JSON.stringify(billCount))
   console.log('totals: ',JSON.stringify(totals))
   console.log('billCount size:',Object.keys(billCount).length)
+  console.log('breakDown:',JSON.stringify(breakDown))
 
   return (
     <CashOutContainer>
@@ -73,8 +98,9 @@ const CashOut = () => {
 
             <Label htmlFor="hoursWorked">Hours Worked</Label>
             <input type="text" id="hoursWorked" name="hoursWorked" required />
+            {JSON.stringify(data)}
             <button type='submit'>Add Teammate</button>
-            <button type='button' onClick={()=>balanceRegister(billCount,totals.totalCashOwed, data, setBreakDown)}>Start Breakdown</button>
+            <button type='submit' onClick={()=>handleBreakDown(billCount, totals.totalCashOwed, data)}>Start Breakdown</button>
           </EmployeeData>
         </FormContainer>
       :

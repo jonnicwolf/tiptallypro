@@ -1,4 +1,23 @@
-export const balanceRegister = (billCounts, cashOwed, shares, breakDownSetter) => {
+const billCount = {
+  $100: 1,
+  $50: 2,
+  $20: 20,
+  $10: 30,
+  $5: 45,
+  $1: 200
+}
+const cashOwed = 400
+const shares = {
+  fezz: 8,
+  justine: 6,
+  jess: 6,
+  chuck: 12
+}
+
+export const balanceRegister = (billCounts, cashOwed, shares) => {
+  console.log(billCount)
+  console.log(cashOwed)
+  console.log(shares)
   let breakDown ={
     bank: {
       100: 0,
@@ -37,20 +56,22 @@ export const balanceRegister = (billCounts, cashOwed, shares, breakDownSetter) =
   };
   const billCountClone = {...billCounts};
   // find the total of all bills
-  const total = 
-    Object.entries(billCounts)
-          .map(billCount => billCount = billCount[0]*billCount[1])
-          .reduce((cur,val)=>cur+val);
+  // const total = 
+  //   Object.entries(billCounts)
+  //         .map(billCount => billCount = billCount[0]*billCount[1])
+  //         .reduce((cur,val)=>cur+val);
   // find all available denominations
   const billDenominations =
-    Object.keys(billCounts)
-          .map(Number)
+    Object.keys(billCountClone)
           .sort((a, b) => b - a);
+  
+  console.log(billDenominations)
   //remove cash owed from total using appropriate bills
   let cashOwedCount = 0;
   for (let bill of billDenominations) {
-    let count = Math.min(billCounts[bill], Math.floor((cashOwed - cashOwedCount) / bill));
-    billCountClone[bill] -= count;
+    bill = Number(bill.slice(1))
+    let count = Math.min(billCounts['$'+bill], Math.floor((cashOwed - cashOwedCount) / bill));
+    billCountClone['$'+bill] -= count;
     cashOwedCount += count * bill;
     breakDown.cashOwed[bill] += count;
   };
@@ -59,10 +80,18 @@ export const balanceRegister = (billCounts, cashOwed, shares, breakDownSetter) =
   //remove bank
   let bank = 0;
   for (let bill of billDenominations) {
-    let count = Math.min(billCounts[bill], billCountClone[bill], Math.floor((500 - bank) / bill));
-    billCountClone[bill] -= count;
+    console.log(bill)
+    bill = Number(bill.slice(1))
+    console.log(bill)
+    let count = Math.min(billCounts['$'+bill], billCountClone['$'+bill], Math.floor((500 - bank) / bill));
+    console.log(bank)
+    console.log(count)
+    billCountClone['$'+bill] -= count;
+    billCountClone
     bank += count * bill;
     breakDown.bank[bill] += count;
   };
-  breakDownSetter(breakDown);
+  return breakDown;
 };
+
+console.log(balanceRegister(billCount, cashOwed, shares))
