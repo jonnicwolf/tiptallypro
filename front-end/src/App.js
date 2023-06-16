@@ -1,11 +1,15 @@
 import React from 'react';
-import TipSheet from './components/TipSheet';
-import NumberBox from './components/utils/NumberBox';
+import { Routes, Route } from 'react-router-dom';
+import CashOut from './components/CashOut';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <>
-      <TipSheet/>
+      <NavBar/>
+      <Routes>
+        <Route path='/' element={<CashOut/>} />
+      </Routes>
     </>
   )
 };
