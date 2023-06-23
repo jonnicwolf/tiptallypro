@@ -37,7 +37,7 @@ const TipSheet = () => {
       setTotals({totalCC: Number(totalCC), totalCash: Number(totalCash), totalHours: Number(totalHours)});
       event.target.reset();
     };
-
+    
     return (
       <TipSheetContainer>
       {totals ?

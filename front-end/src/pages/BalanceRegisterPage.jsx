@@ -6,8 +6,6 @@ import BillCountTable from '../components/BillCountTable';
 const BalanceRegisterPage = () => {
   const [billCount, setBillCount] = useState(null);
   const [cashOwed, setCashOwed] = useState(0);
-  console.log(`billCount balanceRegisterPage: ${JSON.stringify(billCount)}`)
-  console.log(`cashOwed balanceRegisterPage: ${cashOwed}`)
 
   return (
     <div>
