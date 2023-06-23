@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BillCountForm = ({billCountSetter, isPrimaryVisible, isSecondaryVisible}) => {
+const BillCountForm = ({billCountSetter, cashOwedSetter}) => {
   const handleSubmitBillCount = (event) => {
     event.preventDefault();
     const [$100, $50, $20, $10, $5, $1 ] = [
-      //convert type to number for future use
       Number(event.target._100s.value),
       Number(event.target._50s.value),
       Number(event.target._20s.value),
@@ -13,14 +12,18 @@ const BillCountForm = ({billCountSetter, isPrimaryVisible, isSecondaryVisible}) 
       Number(event.target._5s.value),
       Number(event.target._1s.value),
     ];
+
     billCountSetter({$100, $50, $20, $10, $5, $1});
-    isPrimaryVisible(false);
-    isSecondaryVisible(true);
+    cashOwedSetter(Number(event.target.cashOwed.value));
+
     event.target.reset();
   };
 
   return (
-    <FormContainer onSubmit={()=>handleSubmitBillCount}>
+    <FormContainer onSubmit={handleSubmitBillCount}>
+      <Label htmlFor="cashOwed">Cash owed to house</Label>
+      <input type="text" id="cashOwed" name="cashOwed" required />
+
       <Label htmlFor="_100s">100s</Label>
       <input type="text" id='_100s' name='_100s'/>
 
