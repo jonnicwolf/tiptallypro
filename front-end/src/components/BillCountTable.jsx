@@ -8,9 +8,6 @@ const BillCountTable = ({billCount, cashOwed}) => {
   bankCount = Object.entries(bankCount).reverse();
   cashOwedCount = Object.entries(cashOwedCount).reverse();
 
-  console.log(`bankCount :`,bankCount)
-  console.log(`cashOwedCount :`,cashOwedCount)
-
   return (
     <>
       <Table>
@@ -27,14 +24,9 @@ const BillCountTable = ({billCount, cashOwed}) => {
         </thead>
         <Tbody>
           {bankCount.map((bill, index) => (
-          <tr key={index}>
-            <Td>{bill[1]}</Td>
-            <Td>{bill[1]}</Td>
-            <Td>{bill[1]}</Td>
-            <Td>{bill[1]}</Td>
-            <Td>{bill[1]}</Td>
-            <Td>{bill[1]}</Td>
-          </tr>
+          <Td>
+            {bill[1]}
+          </Td>
           ))}
         </Tbody>
       </Table>
@@ -53,14 +45,9 @@ const BillCountTable = ({billCount, cashOwed}) => {
         </thead>
         <Tbody>
           {cashOwedCount.map((bill,index) => (
-          <tr key={index}>
-            <Td>{bill[1]}yo</Td>
-            <Td>{bill[1]}</Td>
-            <Td>{bill[1]}</Td>
-            <Td>{bill[1]}</Td>
-            <Td>{bill[1]}</Td>
-            <Td>{bill[1]}</Td>
-          </tr>
+          <td>
+            {bill[1]}
+          </td>
         ))}
         </Tbody>
       </Table>
