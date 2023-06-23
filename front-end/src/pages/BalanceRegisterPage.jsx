@@ -8,11 +8,18 @@ const BalanceRegisterPage = () => {
   const [cashOwed, setCashOwed] = useState(0);
 
   return (
-    <div>
+    <Page>
       <BillCountForm billCountSetter={setBillCount} cashOwedSetter={setCashOwed}/>
+      <br /><br />
       {billCount && cashOwed && <BillCountTable billCount={billCount} cashOwed={cashOwed}/>}
-    </div>
+    </Page>
   );
 };
+
+const Page = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export default BalanceRegisterPage;

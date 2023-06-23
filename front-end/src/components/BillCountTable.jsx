@@ -12,7 +12,7 @@ const BillCountTable = ({billCount, cashOwed}) => {
     <>
       <Table>
         <thead>
-          Bank Breakdown
+          <Title>Bank Breakdown</Title>
           <tr>
             <Th>100</Th>
             <Th>50</Th>
@@ -23,7 +23,7 @@ const BillCountTable = ({billCount, cashOwed}) => {
           </tr>
         </thead>
         <Tbody>
-          {bankCount.map((bill, index) => (
+          {bankCount.map((bill) => (
           <Td>
             {bill[1]}
           </Td>
@@ -33,7 +33,7 @@ const BillCountTable = ({billCount, cashOwed}) => {
       <br />
       <Table>
         <thead>
-          Cash Owed Breakdown
+          <Title>Cash Owed Breakdown</Title>
           <tr>
             <Th>100</Th>
             <Th>50</Th>
@@ -44,10 +44,10 @@ const BillCountTable = ({billCount, cashOwed}) => {
           </tr>
         </thead>
         <Tbody>
-          {cashOwedCount.map((bill,index) => (
-          <td>
+          {cashOwedCount.map((bill) => (
+          <Td>
             {bill[1]}
-          </td>
+          </Td>
         ))}
         </Tbody>
       </Table>
@@ -56,21 +56,26 @@ const BillCountTable = ({billCount, cashOwed}) => {
 };
 
 const Table = styled.table`
-border-collapse: collapse;
-width: 40%;
+  border-collapse: collapse;
+  width: 40%;
+`;
+const Title = styled.p`
+  white-space: nowrap;
 `;
 const Tbody = styled.tbody`
-align-self: center;
-`
+  align-self: center;
+`;
 const Th = styled.th`
-background-color: #4CAF50;
-color: white;
-padding: 8px;
-text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  width: 100px;
 `;
 const Td = styled.td`
-padding: 8px;
-text-align: left;
+  padding: 8px;
+  text-align: center;
+  width: 100px;
 `;
 
 export default BillCountTable;
