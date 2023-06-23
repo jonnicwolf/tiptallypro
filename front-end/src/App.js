@@ -1,14 +1,16 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import CashOut from './components/CashOut';
+import Home from './pages/HomePage';
 import NavBar from './components/NavBar';
+import BalanceRegisterPage from './pages/BalanceRegisterPage';
 
 function App() {
   return (
     <>
       <NavBar/>
       <Routes>
-        <Route path='/' element={<CashOut/>} />
+        <Route path='/' element={<Home />} />
+        <Route path='/balance-register' element={<BalanceRegisterPage />} />
       </Routes>
     </>
   )

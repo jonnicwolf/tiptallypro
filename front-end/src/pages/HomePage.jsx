@@ -1,5 +1,5 @@
 import React from 'react';
-import TipSheet from './components/TipSheet';
+import TipSheet from '../components/TipSheet';
 
 const Home = () => {
   return (

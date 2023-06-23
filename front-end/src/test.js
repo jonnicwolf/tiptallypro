@@ -23,3 +23,4 @@ function keyGen (segments) {
 };
 
 console.log(keyGen(3))
+
