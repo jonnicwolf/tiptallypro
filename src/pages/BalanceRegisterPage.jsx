@@ -17,9 +17,10 @@ const BalanceRegisterPage = () => {
 };
 
 const Page = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding-top: 40px;
 `;
 
 export default BalanceRegisterPage;

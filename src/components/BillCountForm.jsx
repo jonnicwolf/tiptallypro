@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import '../components/assets/fonts/fonts.css';
 
 const BillCountForm = ({billCountSetter, cashOwedSetter}) => {
   const handleSubmitBillCount = (event) => {
@@ -42,11 +43,14 @@ const BillCountForm = ({billCountSetter, cashOwedSetter}) => {
       <Label htmlFor="_1s">1s</Label>
       <input type="text" id='_1s' name='_1s'/>
 
-      <button type='submit'>Submit</button>
+      <Button type='submit'>Submit</Button>
     </FormContainer>
   );
 };
 
+const Button = styled.button`
+  font-family: Montserrat;
+`;
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -56,6 +60,7 @@ const FormContainer = styled.form`
 `;
 const Label = styled.label`
   align-self: center;
+  font-family: Montserrat;
 `;
 
 export default BillCountForm;
