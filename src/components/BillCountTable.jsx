@@ -68,12 +68,11 @@ const Tbody = styled.tbody`
   align-self: center;
 `;
 const Th = styled.th`
-  background-color: #4CAF50;
+  background-color: black;
   color: white;
   font-family: Montserrat;
   text-align: center;
-  padding: 8px;
-  width: 100px;
+  height: 4vh;
 `;
 const Td = styled.td`
   font-family: Montserrat;

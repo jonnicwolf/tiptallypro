@@ -43,7 +43,7 @@ const BillCountForm = ({billCountSetter, cashOwedSetter}) => {
       <Label htmlFor="_1s">1s</Label>
       <input type="text" id='_1s' name='_1s'/>
 
-      <Button type='submit'>Submit</Button>
+      <Button type='submit'>Run Breakdown</Button>
     </FormContainer>
   );
 };
