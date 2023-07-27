@@ -65,7 +65,7 @@ const TipSheet = () => {
         </FormContainer>
       }
       <br />
-      {data ?
+      {data.length !== 0 ?
         <Table>
           <thead>
             <tr>

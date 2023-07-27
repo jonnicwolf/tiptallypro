@@ -12,14 +12,17 @@ const NavBar = () => {
 };
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
+  border-bottom: 1px solid black;
   column-gap: 10px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-bottom: 20px;
 `;
 const NavLink = styled(Link)`
-  text-decoration: none;
+  
   color: inherit;
+  text-decoration: none;
 `;
 
 export default NavBar;
