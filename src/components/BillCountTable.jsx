@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import '../components/assets/fonts/fonts.css';
 import { balanceRegister } from '../hooks/balanceRegister';
 
 const BillCountTable = ({billCount, cashOwed}) => {
@@ -60,6 +61,7 @@ const Table = styled.table`
   width: 40%;
 `;
 const Title = styled.p`
+  font-family: Montserrat;
   white-space: nowrap;
 `;
 const Tbody = styled.tbody`
@@ -68,11 +70,13 @@ const Tbody = styled.tbody`
 const Th = styled.th`
   background-color: #4CAF50;
   color: white;
+  font-family: Montserrat;
   text-align: center;
   padding: 8px;
   width: 100px;
 `;
 const Td = styled.td`
+  font-family: Montserrat;
   padding: 8px;
   text-align: center;
   width: 100px;
