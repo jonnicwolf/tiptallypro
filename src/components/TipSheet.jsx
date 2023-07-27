@@ -65,7 +65,7 @@ const TipSheet = () => {
         </FormContainer>
       }
       <br />
-      {data ?
+      {data.length !== 0 ?
         <Table>
           <thead>
             <tr>
@@ -97,9 +97,10 @@ const TipSheet = () => {
 };
 
 const TipSheetContainer = styled.div`
+padding-top: 20px;
+align-items: center;
 display: flex;
 flex-direction: column;
-align-items: center;
 gap: 20px;
 `;
 const FormContainer = styled.form`
@@ -111,9 +112,11 @@ width: 15%;
 `;
 const Label = styled.label`
 align-self: center;
+font-family: Montserrat;
 `;
 const Button = styled.button`
 align-self: center;
+font-family: Montserrat;
 width: 100px;
 `;
 const Table = styled.table`
@@ -124,14 +127,14 @@ const Tbody = styled.tbody`
 align-self: center;
 `
 const Th = styled.th`
-background-color: #4CAF50;
+background-color: black;
 color: white;
 padding: 8px;
-text-align: left;
+text-align: center;
 `;
 const Td = styled.td`
 padding: 8px;
-text-align: left;
+text-align: center;
 `;
 const EvenRow = styled.tr`
 background-color: #f2f2f2;
