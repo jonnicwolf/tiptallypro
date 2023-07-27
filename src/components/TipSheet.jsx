@@ -127,14 +127,14 @@ const Tbody = styled.tbody`
 align-self: center;
 `
 const Th = styled.th`
-background-color: #4CAF50;
+background-color: black;
 color: white;
 padding: 8px;
-text-align: left;
+text-align: center;
 `;
 const Td = styled.td`
 padding: 8px;
-text-align: left;
+text-align: center;
 `;
 const EvenRow = styled.tr`
 background-color: #f2f2f2;
