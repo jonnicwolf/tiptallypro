@@ -97,9 +97,10 @@ const TipSheet = () => {
 };
 
 const TipSheetContainer = styled.div`
+padding-top: 20px;
+align-items: center;
 display: flex;
 flex-direction: column;
-align-items: center;
 gap: 20px;
 `;
 const FormContainer = styled.form`
