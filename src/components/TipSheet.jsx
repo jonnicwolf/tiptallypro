@@ -112,9 +112,11 @@ width: 15%;
 `;
 const Label = styled.label`
 align-self: center;
+font-family: Montserrat;
 `;
 const Button = styled.button`
 align-self: center;
+font-family: Montserrat;
 width: 100px;
 `;
 const Table = styled.table`
