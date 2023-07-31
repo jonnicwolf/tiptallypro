@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/HomePage';
 import NavBar from './components/NavBar';
 import BalanceRegisterPage from './pages/BalanceRegisterPage';
+import TipSheetPage from './pages/TipSheetPage';
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/balance-register' element={<BalanceRegisterPage />} />
+        <Route path='/tip-calculator' element={<TipSheetPage />} />
+        <Route path='/register-calculator' element={<BalanceRegisterPage />} />
       </Routes>
     </>
   )
