@@ -12,8 +12,6 @@ const NavBar = () => {
           alt="Folly Logo"
         />
       </LogoContainer>
-      <NavLink to='/'>Tip Sheet</NavLink>
-      <NavLink to='/balance-register'>Balance Register</NavLink>
     </Container>
   );
 };
