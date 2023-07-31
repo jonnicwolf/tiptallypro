@@ -6,40 +6,36 @@ import '../components/assets/fonts/fonts.css';
 const NavBar = () => {
   return (
     <Container>
-      <LogoContainer>
-        <Logo
-          src={'https://images.squarespace-cdn.com/content/v1/560d8157e4b0dfb263d37f7d/1447992635371-E29KM9C6YNABAP5MSETF/logo2.png?format=1500w'}
-          alt="Folly Logo"
-        />
-      </LogoContainer>
+      <Link to='/'>
+        <LogoContainer>
+            <Logo
+              src={'https://images.squarespace-cdn.com/content/v1/560d8157e4b0dfb263d37f7d/1447992635371-E29KM9C6YNABAP5MSETF/logo2.png?format=1500w'}
+              alt="Folly Logo"
+            />
+        </LogoContainer>
+      </Link>
     </Container>
   );
 };
 
 const Container = styled.div`
-  border-bottom: 1px solid black;
+  align-items: center;
   background-color: black;
+  justify-content: center;
   cursor: pointer;
-  gap: 50px;
   display: flex;
   padding-bottom: 20px;
   overflow: hidden;
 `;
 const LogoContainer = styled.div`
-  width: 70vw;
+  background-color: black;
+  width: 13vw;
 `;
 const Logo = styled.img`
   background-color: black;
   height: 7vh;
   width: 10vw;
-  transform: translate(-15px, 8px);
-`;
-const NavLink = styled(Link)`
-  color: white; 
-  font-family: 'Alegreya', serif;
-  font-size: 30px;
-  text-decoration: none;
-  transform: translate(15px, 15px);
+  transform: translateY(5px);
 `;
 
 export default NavBar;
