@@ -25,17 +25,34 @@ const Container = styled.div`
   cursor: pointer;
   display: flex;
   padding-bottom: 20px;
-  overflow: hidden;
 `;
 const LogoContainer = styled.div`
   background-color: black;
   width: 13vw;
+  @media (max-width: 1031px) {
+    width: 25vw;
+  }
+  @media (max-width: 600px) {
+    width: 30vw;
+  }
+  @media (max-width: 500px) {
+    width: 35vw;
+  }
 `;
 const Logo = styled.img`
   background-color: black;
   height: 7vh;
-  width: 10vw;
   transform: translateY(5px);
+  width: 10vw;
+  @media (max-width: 1031px) {
+    width: 20vw;
+  }
+  @media (max-width: 600px) {
+    width: 25vw;
+  }
+  @media (max-width: 500px) {
+    width: 30vw;
+  }
 `;
 
 export default NavBar;
