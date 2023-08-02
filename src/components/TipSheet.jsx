@@ -108,6 +108,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 gap: 5px;
+white-space: nowrap;
 width: 15%;
 `;
 const Label = styled.label`
@@ -138,6 +139,9 @@ text-align: center;
 `;
 const EvenRow = styled.tr`
 background-color: #f2f2f2;
+`;
+const QuestionContainer = styled.div`
+
 `;
 
 export default TipSheet;
