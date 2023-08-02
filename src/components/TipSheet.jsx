@@ -97,51 +97,48 @@ const TipSheet = () => {
 };
 
 const TipSheetContainer = styled.div`
-padding-top: 20px;
-align-items: center;
-display: flex;
-flex-direction: column;
-gap: 20px;
+  padding-top: 20px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 const FormContainer = styled.form`
-display: flex;
-flex-direction: column;
-justify-content: center;
-gap: 5px;
-white-space: nowrap;
-width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  white-space: nowrap;
+  width: 15%;
 `;
 const Label = styled.label`
-align-self: center;
-font-family: Montserrat;
+  align-self: center;
+  font-family: Montserrat;
 `;
 const Button = styled.button`
-align-self: center;
-font-family: Montserrat;
-width: 100px;
+  align-self: center;
+  font-family: Montserrat;
+  width: 100px;
 `;
 const Table = styled.table`
-border-collapse: collapse;
-width: 40%;
+  border-collapse: collapse;
+  width: 40%;
 `;
 const Tbody = styled.tbody`
-align-self: center;
+  align-self: center;
 `
 const Th = styled.th`
-background-color: black;
-color: white;
-padding: 8px;
-text-align: center;
+  background-color: black;
+  color: white;
+  padding: 8px;
+  text-align: center;
 `;
 const Td = styled.td`
-padding: 8px;
-text-align: center;
+  padding: 8px;
+  text-align: center;
 `;
 const EvenRow = styled.tr`
-background-color: #f2f2f2;
-`;
-const QuestionContainer = styled.div`
-
+  background-color: #f2f2f2;
 `;
 
 export default TipSheet;
