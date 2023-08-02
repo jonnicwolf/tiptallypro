@@ -57,6 +57,21 @@ const FormContainer = styled.form`
   justify-content: center;
   gap: 5px;
   width: 15%;
+  @media all and (max-width: 1080px) {
+    width: 20vw;
+  }
+  @media all and (max-width: 799px) {
+    width: 30vw;
+  }
+  @media all and (max-width: 534px) {
+    width: 40vw;
+  }
+  @media all and (max-width: 411px) {
+    width: 50vw;
+  }
+  @media all and (max-width: 320px) {
+    width: 70vw;
+  }
 `;
 const Label = styled.label`
   align-self: center;
