@@ -1,18 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const TipSheet = () => {
   const [data, setData] = useState([]);
-  const [totals, setTotals] = useState(null);
+  const [totals, setTotals] = useState(false);
+
+  const reCountCC = (data,totals,showTotal) => {
+    let total = 0;
+    for (let emp of data) {
+      total += Number(emp.cc)
+    }
+    if (showTotal) {
+      return total
+    } else return totals.totalCC.toFixed(2) === total.toFixed(2);
+  };
+  const reCountCash = (data,totals,showTotal) => {
+    let total = 0
+    console.log(data)
+    for (let emp of data){
+      total += Number(emp.cash)
+    }
+    if (showTotal) {
+      return total
+    } else return totals.totalCash.toFixed(2) === total.toFixed(2);
+  }
+  const reCountHours = (data,totals,showTotal) => {
+    let total = 0
+    for (let emp of data) {
+      total += emp.hoursWorked
+    }
+    if (showTotal) {
+      return total
+    }else return totals.totalHours === total;
+  }
 
   const countCC = (hours, totalHours, cc) => {
     const tipsPerHour = cc/totalHours;
-    return (tipsPerHour * hours).toFixed(2);
+    return (tipsPerHour * hours);
   };
-
   const countCash = (hours, totalHours, cash) => {
     const tipsPerHour = cash/totalHours;
-    return (tipsPerHour * hours).toFixed(2); 
+    return (tipsPerHour * hours);
   };
 
   const handleSubmit = (event) => {
@@ -28,16 +56,18 @@ const TipSheet = () => {
         cash: countCash(hoursWorked, totals.totalHours, totals.totalCash)
       }]);
       event.target.reset();
-    };
-    const handleSubmitTotals = (event) => {
-      event.preventDefault();
-      const totalCC = event.target.totalCC.value;
-      const totalCash = event.target.totalCash.value;
-      const totalHours = event.target.totalHours.value;
-      setTotals({totalCC: Number(totalCC), totalCash: Number(totalCash), totalHours: Number(totalHours)});
-      event.target.reset();
-    };
-    
+  };
+  const handleSubmitTotals = (event) => {
+    event.preventDefault();
+    const totalCC = event.target.totalCC.value;
+    const totalCash = event.target.totalCash.value;
+    const totalHours = event.target.totalHours.value;
+    setTotals(
+      {totalCC: Number(totalCC), totalCash: Number(totalCash), totalHours: Number(totalHours)}
+      );
+    event.target.reset();
+  };
+
     return (
       <TipSheetContainer>
       {totals ?
@@ -62,17 +92,59 @@ const TipSheet = () => {
           <input type="text" id="totalHours" name="totalHours" required />
 
           <Button type='submit'>Add Totals</Button>
+          
         </FormContainer>
       }
       <br />
       {data.length !== 0 ?
+      <Container>
+        <ChecksContainer>
+          <CheckContainer>
+            <div>
+              CC Tips Add Up
+            </div>
+            <div>
+              {
+                reCountCC(data,totals)
+                  ? <Check>✓</Check>
+                  : '❌'
+              }
+            </div>
+            <div>{reCountCC(data,totals,true).toFixed(2)} / {totals.totalCC}</div>
+          </CheckContainer>
+          <CheckContainer>
+            <div>Cash Tips Add Up</div>
+            <div>
+              {
+                reCountCash(data,totals)
+                  ? <Check>✓</Check>
+                  : <div>❌</div>
+              }
+            </div>
+            <div>{reCountCash(data,totals,true).toFixed(2)} / {totals.totalCash}</div>
+
+          </CheckContainer>
+          <CheckContainer>
+            <div>
+              Total Hours
+            </div>
+            <div>
+              {
+                reCountHours(data,totals)
+                  ? <Check>✓</Check>
+                  : '❌'
+              }
+            </div>
+            <div>{reCountHours(data,totals,true)} / {totals.totalHours}</div>
+          </CheckContainer>
+        </ChecksContainer>
         <Table>
           <thead>
             <tr>
               <Th>Name</Th>
-              <Th>Credit Card Tips</Th>
-              <Th>Cash Tips</Th>
-              <Th>Hours Worked</Th>
+              <Th>CC</Th>
+              <Th>$$  </Th>
+              <Th>Hours</Th>
             </tr>
           </thead>
           <Tbody>
@@ -80,28 +152,52 @@ const TipSheet = () => {
               <EvenRow key={index}>
                 <Td>{item.name}</Td>
                 <Td>
-                  {countCC(item.hoursWorked, totals.totalHours, totals.totalCC)}
+                  {countCC(item.hoursWorked, totals.totalHours, totals.totalCC).toFixed(2)}
                 </Td>
                 <Td>
-                  {countCash(item.hoursWorked, totals.totalHours, totals.totalCash)}
+                  {countCash(item.hoursWorked, totals.totalHours, totals.totalCash).toFixed(2)}
                 </Td>
                 <Td>{item.hoursWorked}</Td>
               </EvenRow>
             ))}
           </Tbody>
         </Table>
+      </Container>
         : null
       }
     </TipSheetContainer>
   );
 };
 
-const TipSheetContainer = styled.div`
-  padding-top: 20px;
-  align-items: center;
+const Check = styled.div`
+  color:green;
+  font-size: 30px;
+  font-weight: 900;
+`;
+const CheckContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+`;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh;
+`;
+const ChecksContainer = styled.div`
+  display: flex;
+  gap: 3vw;
+  justify-content: space-between;
+  width: 100%;
+`;
+const TipSheetContainer = styled.div`
+  align-items: center;
+  display: flex;
+  font-family: 'Montserrat';
+  flex-direction: column;
   gap: 20px;
+  padding-top: 20px;
 `;
 const FormContainer = styled.form`
   display: flex;
@@ -118,11 +214,11 @@ const Label = styled.label`
 const Button = styled.button`
   align-self: center;
   font-family: Montserrat;
-  width: 100px;
+  width: 90%;
 `;
 const Table = styled.table`
   border-collapse: collapse;
-  width: 40%;
+  width: 100%;
 `;
 const Tbody = styled.tbody`
   align-self: center;
