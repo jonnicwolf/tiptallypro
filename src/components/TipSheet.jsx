@@ -8,31 +8,30 @@ const TipSheet = () => {
   const reCountCC = (data,totals,showTotal) => {
     let total = 0;
     for (let emp of data) {
-      total += Number(emp.cc)
-    }
+      total += Number(emp.cc);
+    };
     if (showTotal) {
-      return total
+      return total;
     } else return totals.totalCC.toFixed(2) === total.toFixed(2);
   };
   const reCountCash = (data,totals,showTotal) => {
-    let total = 0
-    console.log(data)
+    let total = 0;
     for (let emp of data){
-      total += Number(emp.cash)
-    }
+      total += Number(emp.cash);
+    };
     if (showTotal) {
-      return total
+      return total;
     } else return totals.totalCash.toFixed(2) === total.toFixed(2);
-  }
+  };
   const reCountHours = (data,totals,showTotal) => {
-    let total = 0
+    let total = 0;
     for (let emp of data) {
-      total += emp.hoursWorked
-    }
+      total += emp.hoursWorked;
+    };
     if (showTotal) {
-      return total
-    }else return totals.totalHours === total;
-  }
+      return total;
+    } else return totals.totalHours === total;
+  };
 
   const countCC = (hours, totalHours, cc) => {
     const tipsPerHour = cc/totalHours;
@@ -92,7 +91,6 @@ const TipSheet = () => {
           <input type="text" id="totalHours" name="totalHours" required />
 
           <Button type='submit'>Add Totals</Button>
-          
         </FormContainer>
       }
       <br />
@@ -168,7 +166,11 @@ const TipSheet = () => {
     </TipSheetContainer>
   );
 };
-
+const Button = styled.button`
+  align-self: center;
+  font-family: Montserrat;
+  width: 90%;
+`;
 const Check = styled.div`
   color:green;
   font-size: 30px;
@@ -179,25 +181,20 @@ const CheckContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5vh;
-`;
 const ChecksContainer = styled.div`
   display: flex;
   gap: 3vw;
   justify-content: space-between;
   width: 100%;
 `;
-const TipSheetContainer = styled.div`
-  align-items: center;
+const Container = styled.div`
   display: flex;
-  font-family: 'Montserrat';
   flex-direction: column;
-  gap: 20px;
-  padding-top: 20px;
+  align-items: center;
+  gap: 5vh;
+`;
+const EvenRow = styled.tr`
+  background-color: #f2f2f2;
 `;
 const FormContainer = styled.form`
   display: flex;
@@ -211,30 +208,30 @@ const Label = styled.label`
   align-self: center;
   font-family: Montserrat;
 `;
-const Button = styled.button`
-  align-self: center;
-  font-family: Montserrat;
-  width: 90%;
-`;
 const Table = styled.table`
   border-collapse: collapse;
   width: 100%;
 `;
 const Tbody = styled.tbody`
   align-self: center;
-`
+`;
+const Td = styled.td`
+  padding: 8px;
+  text-align: center;
+`;
 const Th = styled.th`
   background-color: black;
   color: white;
   padding: 8px;
   text-align: center;
 `;
-const Td = styled.td`
-  padding: 8px;
-  text-align: center;
-`;
-const EvenRow = styled.tr`
-  background-color: #f2f2f2;
+const TipSheetContainer = styled.div`
+  align-items: center;
+  display: flex;
+  font-family: 'Montserrat';
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
 `;
 
 export default TipSheet;
