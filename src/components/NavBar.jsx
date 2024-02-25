@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import '../components/assets/fonts/fonts.css';
 
+import logo from './assets/tpr_logo.jpg';
+
 const NavBar = () => {
   return (
     <Container>
       <Link to='/'>
         <LogoContainer>
             <Logo
-              src={'https://images.squarespace-cdn.com/content/v1/560d8157e4b0dfb263d37f7d/1447992635371-E29KM9C6YNABAP5MSETF/logo2.png?format=1500w'}
-              alt="Folly Logo"
+              src={logo}
+              alt="TPR"
             />
         </LogoContainer>
       </Link>
@@ -20,14 +22,16 @@ const NavBar = () => {
 
 const Container = styled.div`
   align-items: center;
-  background-color: black;
+  background-color: #FFFCF1;
+  border-bottom: 1px solid black;
   justify-content: center;
   cursor: pointer;
   display: flex;
   padding-bottom: 20px;
 `;
 const LogoContainer = styled.div`
-  background-color: black;
+  background-color: #FFFCF1;
+  // height: 20vh;
   width: 13vw;
   @media (max-width: 1031px) {
     width: 25vw;
