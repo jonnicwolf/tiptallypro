@@ -161,11 +161,12 @@ const TipSheet = () => {
           </Tbody>
         </Table>
       </Container>
-        : null
+      : null
       }
     </TipSheetContainer>
   );
 };
+
 const Button = styled.button`
   align-self: center;
   font-family: Montserrat;

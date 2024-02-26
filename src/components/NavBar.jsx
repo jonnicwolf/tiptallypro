@@ -10,10 +10,7 @@ const NavBar = () => {
     <Container>
       <Link to='/'>
         <LogoContainer>
-            <Logo
-              src={logo}
-              alt="TPR"
-            />
+          <Logo src={logo} alt="TPR"/>
         </LogoContainer>
       </Link>
     </Container>
@@ -31,7 +28,6 @@ const Container = styled.div`
 `;
 const LogoContainer = styled.div`
   background-color: #FFFCF1;
-  // height: 20vh;
   width: 13vw;
   @media (max-width: 1031px) {
     width: 25vw;
