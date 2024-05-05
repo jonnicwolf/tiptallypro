@@ -61,12 +61,13 @@ Start the server
 
 This project is used by the following companies:
 
-- Company 1
-- Company 2
+- The Folly, https://www.follynyc.com
+- Madame X, https://madamex.com
+- GMT Tavern, https://gmtnyc.com 
+- Brewskis, https://www.brewskistogo.com
+- Mamajuana Cafe, https://mamajuanacafebronx.com
+- Marie's Crisis Cafe, https://www.mariescrisiscafe.com
 
-The Folly, https://www.follynyc.com
-Madame X, https://madamex.com
-GMT Tavern, https://gmtnyc.com
 ## Tech Stack
 
 **Client:** React, JavaScript, Styled-Components
