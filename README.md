@@ -30,14 +30,6 @@ Visit: https://tiptallypro.netlify.app
 
 ## Run Locally
 
-Clone the project
-
-```bash
-  git clone https://link-to-project
-```
-
-Go to the project directory
-
 Clone this repository: https://github.com/jonnicwolf/tiptallypro.git
 
 ```bash
