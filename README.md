@@ -3,7 +3,7 @@
 
 Welcome to Tip Tally Pro! This application is designed to streamline the process of distributing tips among employees based on credit card and cash transactions while also assisting in managing the cash flow by counting bills of various denominations.
 
-[### Live Link](https://tiptallypro.netlify.app/)
+### [Live Link](https://tiptallypro.netlify.app/)
 
 ## Features
 
